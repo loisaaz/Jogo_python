@@ -1,0 +1,5 @@
+print("BEM VINDO AO JOGO SECRETO!: ")
+print("O objetivo é acertar o número secreto. ")
+print("Você 10 tentativas para acertar o número secreto entre [1000 e 9999]")
+print("A parTIR da 5a. tentativa o jogo irá te ajudar , dando dicas ")
+print("\n>>>TECLE ALGO PARA CONTINUAR <<<<: ")
