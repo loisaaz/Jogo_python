@@ -14,3 +14,19 @@ digito_1 = palpite // 1000
 digito_2 = (palpite // 100) % 10
 digito_3 = (palpite // 10) % 10  
 digito_4 = palpite % 10 
+print(digito_1)
+print(digito_2)
+print(digito_3)
+print(digito_4)
+
+
+# separar digitos codigo secreto
+cod_secreto_1 = codig_secret // 1000     
+cod_secreto_2 = (codig_secret // 100) % 10
+cod_secreto_3 = (codig_secret // 10) % 10  
+cod_secreto_4 = codig_secret % 10 
+
+print(cod_secreto_1)
+print(cod_secreto_2)
+print(cod_secreto_3)
+print(cod_secreto_4)
