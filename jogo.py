@@ -7,7 +7,7 @@ input() # tecle algo para aparecer a próxima tela
 
 import random 
 codig_secret= random.randint(1000,9999) #biblioteca
-palpite=int(input("Digite um número com 4 dígitos:"))
+palpite=int(input("Digite seu palpite sendo um número de 4 dígitos:"))
 
 # separar dígitos para comparação
 digito_1 = palpite // 1000     
