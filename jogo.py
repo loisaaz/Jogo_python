@@ -6,7 +6,7 @@ print("\n>>>TECLE ALGO PARA CONTINUAR <<<<:")
 input() # tecle algo para aparecer a próxima tela
 
 import random 
-codig_secret= random.randint(1000,9999)
+codig_secret= random.randint(1000,9999) #biblioteca
 palpite=int(input("Digite um número com 4 dígitos:"))
 
 # separar dígitos para comparação
@@ -30,3 +30,7 @@ print(cod_secreto_1)
 print(cod_secreto_2)
 print(cod_secreto_3)
 print(cod_secreto_4)
+
+# adicionar um loop para comparaçao entre o palpite e o cod secreto (for ou while)
+# criar variáveis para contar (logo entendemos que precisamos adicionar um contador) quantos dígitos estão corretos (se correto deve aparecer) e quantos estão na posição certa.
+# loop para contagem de tentativas
