@@ -82,5 +82,5 @@ while tentativas < max_tentativas:
         print(f"\nVocê não acertou o número secreto. O número era {codig_secret}.")
   
 # print("\nSeu dígito é:")
-print("julia")
+
 
