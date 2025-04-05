@@ -1,0 +1,50 @@
+#gente, percebi que no nosso arquivo anterior não informa o acerto com base na posição dos números, e como a Lúcia pediu no documento (mesmo que não esteja nas telas de exemplo, trouxe uma variação de como podemos fazer. Editem o que acharem que convém.
+
+import random
+
+jogar_novamente = 1
+
+while jogar_novamente == 1:
+    codigo = random.randint(1000, 9999)
+    tentativas = 0
+    ganhou = 0
+
+    while tentativas < 10 and ganhou == 0:
+        jogador = int(input("Digite um número de 4 dígitos: "))
+
+        # Aqui é para contar acertos e posições corretas
+        acertos = 0
+        posicao = 0
+        
+        # Verifica cada dígito, igual como a Helo fez no outro arquivo
+        for contador in range(4):
+            resto_jogador = jogador % 10
+            resto_codigo = codigo % 10
+
+            # Verifica posição correta
+            if resto_jogador == resto_codigo:
+                posicao += 1
+
+            # Verifica se o número existe no código
+            numero = codigo
+            for contagem in range(4):
+                resto_numero = numero % 10
+
+                if resto_jogador == resto_numero:
+                    acertos += 1
+
+                numero //= 10
+
+            jogador //= 10
+            codigo //= 10
+
+        tentativas += 1
+
+        print("Números corretos na posição certa:", posicao)
+        print("Números corretos na posição errada:", acertos - posicao)
+
+        # Verifica se ganhou
+        if posicao == 4:
+            ganhou = 1
+            print("Parabéns! Você acertou o código secreto!")
+            print("Tentativas:", tentativas)
