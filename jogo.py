@@ -10,77 +10,51 @@ codig_secret= random.randint(1000,9999) #biblioteca
 
 tentativas = 0 # loop para contagem de tentativas
 max_tentativas = 10
+jogar_novamente = 1
 
-while tentativas < max_tentativas:
-    palpite = int(input("Digite seu palpite sendo um número de 4 dígitos:"))
-    if palpite < 1000 or palpite > 9999:
-        print("\nATENÇÃO! ! !")
-        print("\nINSIRA UM VALOR NO INTERVALO DE 1000 E 9999")
-        continue
+while jogar_novamente == 1:
+    codigo = random.randint(1000, 9999)
+    tentativas = 0
+    ganhou = 0
 
-    tentativas +=1
-    tentativas_restantes = max_tentativas - tentativas
-    print(f"\nTentativas restantes {tentativas_restantes}")
+    while tentativas < 10 and ganhou == 0:
+        jogador = int(input("Digite um número de 4 dígitos: "))
 
-    # separar dígitos do palpite
-    digito_1 = palpite // 1000     
-    digito_2 = (palpite // 100) % 10
-    digito_3 = (palpite // 10) % 10  
-    digito_4 = palpite % 10 
-    #print(digito_1)
-    #print(digito_2)
-    #print(digito_3)
-    #print(digito_4)
+        # Aqui é para contar acertos e posições corretas
+        acertos = 0
+        posicao = 0
+        
+        # Verifica cada dígito, igual como a Helo fez no outro arquivo
+        for contador in range(4):
+            resto_jogador = jogador % 10
+            resto_codigo = codigo % 10
 
-    # separar digitos codigo secreto
-    cod_secreto_1 = codig_secret // 1000     
-    cod_secreto_2 = (codig_secret // 100) % 10
-    cod_secreto_3 = (codig_secret // 10) % 10  
-    cod_secreto_4 = codig_secret % 10 
-    #print(cod_secreto_1)
-    #print(cod_secreto_2)
-    #print(cod_secreto_3)
-    #print(cod_secreto_4)
+            # Verifica posição correta
+            if resto_jogador == resto_codigo:
+                posicao += 1
 
-    #variáveis para contar dígitos corretos/errados.
-    digitos_certos = 0
-    digitos_errados = 0
+            # Verifica se o número existe no código
+            numero = codigo
+            for contagem in range(4):
+                resto_numero = numero % 10
 
-# escolhi usar elif porque estamos trabalhando com bastantes possibilidades e ele facilita mais que o else.
-# as listas tornam o trabalho mais fácil caso algo precise ser alterado e o código fica mais limpo 
-# especialmente quando há múltiplas verificações. 
+                if resto_jogador == resto_numero:
+                    acertos += 1
 
-    if digito_1 == cod_secreto_1:
-        digitos_certos += 1
-        print("\nVocê acertou 1 dígito(s)!")
-    elif digito_1 in [cod_secreto_2, cod_secreto_3, cod_secreto_4]:
-        digitos_errados += 1
-        print("\nVocê não acertou nenhum dígito.")
+                numero //= 10
 
-    if digito_2 == cod_secreto_2:
-        digitos_certos += 1
-        print("\nVocê acertou 1 dígito(s)!")
-    elif digito_2 in [cod_secreto_1, cod_secreto_3, cod_secreto_4]:
-        digitos_errados += 1
-        print("\nVocê não acertou nenhum dígito.")
+            jogador //= 10
+            codigo //= 10
 
-    if digito_3 == cod_secreto_3:
-        digitos_certos += 1
-        print("\nVocê acertou 1 dígito(s)!")
-    elif digito_3 in [cod_secreto_1, cod_secreto_2, cod_secreto_4]:
-        digitos_errados += 1
-        print("\nVocê não acertou nenhum dígito.")
+        tentativas += 1
 
-    if digito_4 == cod_secreto_4:
-        digitos_certos += 1
-        print("\nVocê acertou 1 dígito(s)!")
-    elif digito_4 in [cod_secreto_1, cod_secreto_2, cod_secreto_3]:
-        digitos_errados += 1
-        print("\nVocê não acertou nenhum dígito.")
+        print("Números corretos na posição certa:", posicao)
+        print("Números corretos na posição errada:", acertos - posicao)
 
-    if tentativas == max_tentativas:
-        print(f"\nVocê não acertou o número secreto. O número era {codig_secret}.")
-  
-# print("\nSeu dígito é:")
+        # Verifica se ganhou
+        if posicao == 4:
+            ganhou = 1
+            print("Parabéns! Você acertou o código secreto!")
+            print("Tentativas:", tentativas)
 
 
