@@ -10,6 +10,11 @@ codig_secret= random.randint(1000,9999) #biblioteca
 
 tentativas = 0 # loop para contagem de tentativas
 max_tentativas = 10
+progresso = "_ _ _ _"
+prog_digito_1 = "_"
+prog_digito_2 = "_"
+prog_digito_3 = "_"
+prog_digito_4 = "_"
 
 while tentativas < max_tentativas:
     palpite = int(input("Digite seu palpite sendo um número de 4 dígitos:"))
@@ -47,50 +52,57 @@ while tentativas < max_tentativas:
     digitos_certos = 0
     digitos_errados = 0
 
-# escolhi usar elif porque estamos trabalhando com bastantes possibilidades e ele facilita mais que o else.
-# as listas tornam o trabalho mais fácil caso algo precise ser alterado e o código fica mais limpo 
-# especialmente quando há múltiplas verificações. 
-
     if digito_1 == cod_secreto_1:
-        digitos_certos += 1
-        print("\nVocê acertou 1 dígito(s)!")
+        prog_digito_1 = digito_1
+        #digitos_certos += 1
+        #print("\nVocê acertou 1 dígito(s)!")
     elif digito_1 != cod_secreto_1:
         digitos_errados += 1
-        print("\nVocê não acertou nenhum dígito.")
+        #print("\nVocê não acertou nenhum dígito.")
 
     if digito_2 == cod_secreto_2:
-        digitos_certos += 1
-        print("\nVocê acertou 1 dígito(s)!")
+        #digitos_certos += 1
+        prog_digito_2 = digito_2
+        #print("\nVocê acertou 1 dígito(s)!")
     elif digito_2 != cod_secreto_2:
         digitos_errados += 1
-        print("\nVocê não acertou nenhum dígito.")
+        #print("\nVocê não acertou nenhum dígito.")
 
     if digito_3 == cod_secreto_3:
-        digitos_certos += 1
-        print("\nVocê acertou 1 dígito(s)!")
+        prog_digito_3 = digito_3
+        #digitos_certos += 1
+        #print("\nVocê acertou 1 dígito(s)!")
     elif digito_3 != cod_secreto_3:
         digitos_errados += 1
-        print("\nVocê não acertou nenhum dígito.")
+        #print("\nVocê não acertou nenhum dígito.")
 
     if digito_4 == cod_secreto_4:
-        digitos_certos += 1
-        print("\nVocê acertou 1 dígito(s)!")
+        prog_digito_4 = digito_4
+        #digitos_certos += 1
+        #print("\nVocê acertou 1 dígito(s)!")
     elif digito_4 != cod_secreto_4:
         digitos_errados += 1
-        print("\nVocê não acertou nenhum dígito.")
+        #print("\nVocê não acertou nenhum dígito.")
 
+    print(f"\nSeu código é: {prog_digito_1} {prog_digito_2} {prog_digito_3} {prog_digito_4}")
+    if prog_digito_1 or prog_digito_2 or prog_digito_3 or prog_digito_4 == codig_secret:
+        print("\nVocê acertou 1 dígito(s)!")
+    else:
+        print("\nVocê não acertou nenhum dígito.")
 #dicas
     if tentativas >= 5:
         if palpite < codig_secret:
             print("DICA: O número secreto é MAIOR que seu palpite.")
         else:
             print("DICA: O número secreto é MENOR que seu palpite.")
-
+    for i in range(4):
+        if palpite == codig_secret:
+         print(f'\nSEU CÓDIGO É:')
     if tentativas == max_tentativas:
         print(f"\nVocê não acertou o número secreto. O número era {codig_secret}.")
-    else:
-        print("\nPARABÉNS! Você acertou o número secreto!")
-        break
+    #else:
+        #print("\nPARABÉNS! Você acertou o número secreto!")
+       # break
 # print("\nSeu dígito é:")
 # mostrar algo como - seu digito é: 9 _ _ 7
 
