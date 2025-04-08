@@ -98,12 +98,9 @@ while tentativas < max_tentativas:
     for i in range(4):
         if palpite == codig_secret:
          print(f'\nSEU CÓDIGO É:')
+ 
+    if palpite == codig_secret:
+            print("\nPARABÉNS! Você acertou o número secreto!")
+            break
     if tentativas == max_tentativas:
-        print(f"\nVocê não acertou o número secreto. O número era {codig_secret}.")
-    #else:
-        #print("\nPARABÉNS! Você acertou o número secreto!")
-       # break
-# print("\nSeu dígito é:")
-# mostrar algo como - seu digito é: 9 _ _ 7
-
-
+            print(f"\nVocê não acertou o número secreto. O número era {codig_secret}.")
