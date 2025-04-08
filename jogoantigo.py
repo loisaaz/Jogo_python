@@ -3,12 +3,12 @@ print("\nO objetivo é acertar o número secreto.")
 print("\nVocê 10 tentativas para acertar o número secreto entre [1000 e 9999]")
 print("\nA partir da 5° tentativa o jogo irá te ajudar com  dicas")
 print("\n>>>TECLE ALGO PARA CONTINUAR <<<<:")
-input() # tecle algo para aparecer a próxima tela
+input()
 
 import random 
-codig_secret= random.randint(1000,9999) #biblioteca
+codig_secret= random.randint(1000,9999) 
 
-tentativas = 0 # loop para contagem de tentativas
+tentativas = 0 
 max_tentativas = 10
 progresso = "_ _ _ _"
 prog_digito_1 = "_"
@@ -21,8 +21,7 @@ while tentativas < max_tentativas:
     if palpite < 1000 or palpite > 9999 or float:
         print("\nATENÇÃO! ! !")
         print("\nINSIRA UM VALOR NO INTERVALO DE 1000 - 9999 E INTEIRO")
-    else:
-        palpite = int(input("Digite seu palpite sendo um número de 4 dígitos:"))
+        break
 
     tentativas +=1
     tentativas_restantes = max_tentativas - tentativas

@@ -2,24 +2,24 @@
 print("\nBEM VINDO AO JOGO SECRETO!!")
 print("\nO objetivo é acertar o número secreto.")
 print("\nVocê 10 tentativas para acertar o número secreto entre [1000 e 9999]")
-print("\nA partir da 5° tentativa o jogo irá te ajudar com  dicas")
+print("\nA partir da 5° tentativa o jogo irá te ajudar com  dicas ! !")
 print("\n>>>TECLE ALGO PARA CONTINUAR <<<<:")
 input() # tecle algo para aparecer a próxima tela
 
 import random 
-codig_secret= random.randint(1000,9999) #biblioteca
+codig_secret= random.randint(1000,9999)
 
-tentativas = 0 # loop para contagem de tentativas
+tentativas = 0
 max_tentativas = 10
 codigo_usuario = 0
 
 while tentativas < max_tentativas:
     palpite = int(input("Digite seu palpite sendo um número de 4 dígitos:"))
-    if palpite < 1000 or palpite > 9999 or float:
+    if palpite < 1000 or palpite > 9999:
         print("\nATENÇÃO! ! !")
         print("\nINSIRA UM VALOR NO INTERVALO DE 1000 - 9999 E INTEIRO")
-    else:
-        palpite = int(input("Digite seu palpite sendo um número de 4 dígitos:"))
+        input()
+        break
 
     tentativas +=1
     tentativas_restantes = max_tentativas - tentativas
@@ -30,28 +30,16 @@ while tentativas < max_tentativas:
     digito_2 = (palpite // 100) % 10
     digito_3 = (palpite // 10) % 10  
     digito_4 = palpite % 10 
-    #print(digito_1)
-    #print(digito_2)
-    #print(digito_3)
-    #print(digito_4)
 
     # separar digitos codigo secreto
     cod_secreto_1 = codig_secret // 1000     
     cod_secreto_2 = (codig_secret // 100) % 10
     cod_secreto_3 = (codig_secret // 10) % 10  
     cod_secreto_4 = codig_secret % 10 
-    #print(cod_secreto_1)
-    #print(cod_secreto_2)
-    #print(cod_secreto_3)
-    #print(cod_secreto_4)
 
     #variáveis para contar dígitos corretos/errados.
     digitos_certos = 0
     digitos_errados = 0
-
-# escolhi usar elif porque estamos trabalhando com bastantes possibilidades e ele facilita mais que o else.
-# as listas tornam o trabalho mais fácil caso algo precise ser alterado e o código fica mais limpo 
-# especialmente quando há múltiplas verificações. 
 
     if digito_1 == cod_secreto_1:
         digitos_certos += 1
