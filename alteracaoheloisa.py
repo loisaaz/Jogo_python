@@ -1,3 +1,4 @@
+
 print("\nBEM VINDO AO JOGO SECRETO!!")
 print("\nO objetivo é acertar o número secreto.")
 print("\nVocê 10 tentativas para acertar o número secreto entre [1000 e 9999]")
@@ -10,6 +11,7 @@ codig_secret= random.randint(1000,9999) #biblioteca
 
 tentativas = 0 # loop para contagem de tentativas
 max_tentativas = 10
+codigo_usuario = 0
 
 while tentativas < max_tentativas:
     palpite = int(input("Digite seu palpite sendo um número de 4 dígitos:"))
@@ -54,44 +56,51 @@ while tentativas < max_tentativas:
     if digito_1 == cod_secreto_1:
         digitos_certos += 1
         print("\nVocê acertou 1 dígito(s)!")
-    elif digito_1 != cod_secreto_1:
+    elif digito_1 in [cod_secreto_2, cod_secreto_3, cod_secreto_4]:
         digitos_errados += 1
         print("\nVocê não acertou nenhum dígito.")
 
     if digito_2 == cod_secreto_2:
         digitos_certos += 1
         print("\nVocê acertou 1 dígito(s)!")
-    elif digito_2 != cod_secreto_2:
+    elif digito_2 in [cod_secreto_1, cod_secreto_3, cod_secreto_4]:
         digitos_errados += 1
         print("\nVocê não acertou nenhum dígito.")
 
     if digito_3 == cod_secreto_3:
         digitos_certos += 1
         print("\nVocê acertou 1 dígito(s)!")
-    elif digito_3 != cod_secreto_3:
+    elif digito_3 in [cod_secreto_1, cod_secreto_2, cod_secreto_4]:
         digitos_errados += 1
         print("\nVocê não acertou nenhum dígito.")
 
     if digito_4 == cod_secreto_4:
         digitos_certos += 1
         print("\nVocê acertou 1 dígito(s)!")
-    elif digito_4 != cod_secreto_4:
+    elif digito_4 in [cod_secreto_1, cod_secreto_2, cod_secreto_3]:
         digitos_errados += 1
         print("\nVocê não acertou nenhum dígito.")
 
-#dicas
     if tentativas >= 5:
         if palpite < codig_secret:
             print("DICA: O número secreto é MAIOR que seu palpite.")
         else:
             print("DICA: O número secreto é MENOR que seu palpite.")
+        if tentativas == max_tentativas:
+            print(f"\nVocê não acertou o número secreto. O número era {codig_secret}.")
+  
+# print("\nSeu código é:")
+# se o nummero for maior ou igual a 5 num de tentativa de dicas
 
-    if tentativas == max_tentativas:
-        print(f"\nVocê não acertou o número secreto. O número era {codig_secret}.")
-    else:
-        print("\nPARABÉNS! Você acertou o número secreto!")
-        break
-# print("\nSeu dígito é:")
-# mostrar algo como - seu digito é: 9 _ _ 7
+
+#for i in range(4):
+  #  if digitos_certos == codig_secret:
+   #     codigo_usuario += tentativa
+ #   else:
+#        codigo_usuario += "_"
+
+# Mostrar o resultado
+#print(f"Seu código é: {codigo_usuario}")
+
 
 
