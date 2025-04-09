@@ -76,24 +76,31 @@ while tentativas < max_tentativas:
     #print("\nNúmeros corretos na posição certa:", posicao)
     #print("\nNúmeros corretos na posição errada:", acertos - posicao)
 
-    print(f"\nSeu código é: {prog_digito_1} {prog_digito_2} {prog_digito_3} {prog_digito_4}")
     if prog_digito_1 or prog_digito_2 or prog_digito_3 or prog_digito_4 == codig_secret:
+        print(f"\nSeu código é: {prog_digito_1} {prog_digito_2} {prog_digito_3} {prog_digito_4}")
         print("\nVocê acertou 1 dígito(s)!")
     else:
         print("\nVocê não acertou nenhum dígito.")
-
+           
+# Dicas a partir da 5ª tentativa
     if tentativas >= 5:
-        if palpite < codig_secret:
-            print("DICA: O número secreto é MAIOR que seu palpite.")
-        else:
-            print("DICA: O número secreto é MENOR que seu palpite.")
- 
-    if palpite == codig_secret:
-            print("\nPARABÉNS! Você acertou o número secreto!")
-            break
-    
-    if tentativas == max_tentativas:
-            print(f"\nVocê não acertou o número secreto. O número era {codig_secret}.")
-            print("Obrigado por jogar!")
-            jogar_novamente = int(input("\nDeseja jogar novamente? (1 - Sim / 0 - Não): "))
-            
+        if prog_digito_1 == -1:
+            if digito_1 >= 5:
+                print("\n(DICA: O número na posição 1 é maior ou igual a 5)")
+            else:
+                print("\n(DICA: O número na posição 1 é menor que 5)")
+        elif prog_digito_2 == -1:
+            if digito_2 >= 5:
+                print("\n(DICA: O número na posição 2 é maior ou igual a 5)")
+            else:
+                print("\n(DICA: O número na posição 2 é menor que 5)")
+        elif prog_digito_3 == -1:
+            if digito_3 >= 5:
+                print("\n(DICA: O número na posição 3 é maior ou igual a 5)")
+            else:
+                print("\n(DICA: O número na posição 3 é menor que 5)")
+        elif prog_digito_4 == -1:
+            if digito_4 >= 5:
+                print("\n(DICA: O número na posição 4 é maior ou igual a 5)")
+            else:
+                print("\n(DICA: O número na posição 4 é menor que 5)")
