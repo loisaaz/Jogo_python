@@ -10,6 +10,8 @@ codig_secret= random.randint(1000,9999)
 
 tentativas = 0 
 max_tentativas = 10
+acertos = 0
+posicao = 0
 progresso = "_ _ _ _"
 prog_digito_1 = "_"
 prog_digito_2 = "_"
@@ -17,89 +19,78 @@ prog_digito_3 = "_"
 prog_digito_4 = "_"
 
 while tentativas < max_tentativas:
+    print("\n---------------------------------------")
     palpite = int(input("Digite seu palpite sendo um número de 4 dígitos:"))
-    if palpite < 1000 or palpite > 9999 or float:
+    if palpite < 1000 or palpite > 9999:
         print("\nATENÇÃO! ! !")
         print("\nINSIRA UM VALOR NO INTERVALO DE 1000 - 9999 E INTEIRO")
-        break
+        continue
 
     tentativas +=1
     tentativas_restantes = max_tentativas - tentativas
     print(f"\nTentativas restantes {tentativas_restantes}")
+    print("\n---------------------------------------")
 
-    # separar dígitos do palpite
     digito_1 = palpite // 1000     
     digito_2 = (palpite // 100) % 10
     digito_3 = (palpite // 10) % 10  
     digito_4 = palpite % 10 
-    #print(digito_1)
-    #print(digito_2)
-    #print(digito_3)
-    #print(digito_4)
 
-    # separar digitos codigo secreto
     cod_secreto_1 = codig_secret // 1000     
     cod_secreto_2 = (codig_secret // 100) % 10
     cod_secreto_3 = (codig_secret // 10) % 10  
     cod_secreto_4 = codig_secret % 10 
-    #print(cod_secreto_1)
-    #print(cod_secreto_2)
-    #print(cod_secreto_3)
-    #print(cod_secreto_4)
-
-    #variáveis para contar dígitos corretos/errados.
-    digitos_certos = 0
-    digitos_errados = 0
 
     if digito_1 == cod_secreto_1:
         prog_digito_1 = digito_1
-        #digitos_certos += 1
-        #print("\nVocê acertou 1 dígito(s)!")
-    elif digito_1 != cod_secreto_1:
-        digitos_errados += 1
-        #print("\nVocê não acertou nenhum dígito.")
+        posicao += 1
+
+    else: 
+        digito_1 != cod_secreto_1
+        posicao += 1
 
     if digito_2 == cod_secreto_2:
-        #digitos_certos += 1
         prog_digito_2 = digito_2
-        #print("\nVocê acertou 1 dígito(s)!")
-    elif digito_2 != cod_secreto_2:
-        digitos_errados += 1
-        #print("\nVocê não acertou nenhum dígito.")
+        posicao += 1
+
+    else:
+        digito_2 != cod_secreto_2
+        posicao += 1
 
     if digito_3 == cod_secreto_3:
         prog_digito_3 = digito_3
-        #digitos_certos += 1
-        #print("\nVocê acertou 1 dígito(s)!")
-    elif digito_3 != cod_secreto_3:
-        digitos_errados += 1
-        #print("\nVocê não acertou nenhum dígito.")
+        posicao += 1
+
+    else:
+        digito_3 != cod_secreto_3
+        posicao += 1
 
     if digito_4 == cod_secreto_4:
         prog_digito_4 = digito_4
-        #digitos_certos += 1
-        #print("\nVocê acertou 1 dígito(s)!")
-    elif digito_4 != cod_secreto_4:
-        digitos_errados += 1
-        #print("\nVocê não acertou nenhum dígito.")
+        posicao += 1
+
+    else:
+        digito_4 != cod_secreto_4
+        posicao += 1
+
+    print("\nNúmeros corretos na posição certa:", posicao)
+    print("\nNúmeros corretos na posição errada:", acertos - posicao)
 
     print(f"\nSeu código é: {prog_digito_1} {prog_digito_2} {prog_digito_3} {prog_digito_4}")
     if prog_digito_1 or prog_digito_2 or prog_digito_3 or prog_digito_4 == codig_secret:
         print("\nVocê acertou 1 dígito(s)!")
     else:
         print("\nVocê não acertou nenhum dígito.")
-#dicas
+
     if tentativas >= 5:
         if palpite < codig_secret:
             print("DICA: O número secreto é MAIOR que seu palpite.")
         else:
             print("DICA: O número secreto é MENOR que seu palpite.")
-    for i in range(4):
-        if palpite == codig_secret:
-         print(f'\nSEU CÓDIGO É:')
  
     if palpite == codig_secret:
             print("\nPARABÉNS! Você acertou o número secreto!")
             break
+    
     if tentativas == max_tentativas:
             print(f"\nVocê não acertou o número secreto. O número era {codig_secret}.")
