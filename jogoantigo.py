@@ -17,7 +17,7 @@ prog_digito_3 = "_"
 prog_digito_4 = "_"
 
 while tentativas < max_tentativas:
-    print("\n---------------------------------------")
+    print("\n-------------------------------------------------------------")
     palpite = int(input("Digite seu palpite sendo um número de 4 dígitos:"))
     if palpite < 1000 or palpite > 9999:
         print("\nATENÇÃO! ! !")
@@ -27,7 +27,7 @@ while tentativas < max_tentativas:
     tentativas +=1
     tentativas_restantes = max_tentativas - tentativas
     print(f"\nTentativas restantes {tentativas_restantes}")
-    print("\n---------------------------------------")
+    print("\n--------------------------------------------")
 
     digito_1 = palpite // 1000     
     digito_2 = (palpite // 100) % 10
@@ -74,32 +74,71 @@ while tentativas < max_tentativas:
     if prog_digito_1 or prog_digito_2 or prog_digito_3 or prog_digito_4 == codig_secret:
         print(f"\nSeu código é: {prog_digito_1} {prog_digito_2} {prog_digito_3} {prog_digito_4}")           
 
-    # -------------------- INICIO DICAS
-
         if tentativas >= 5:
+            #print(f"\nSeu código é: {prog_digito_1} {prog_digito_2} {prog_digito_3} {prog_digito_4}")
+            if prog_digito_1 != "_":
+                print(f"{prog_digito_1}", end=" ")
+            else:
+                if cod_secreto_1 % 2 == 0:
+                    print("\nPAR", end=" ")
+                else:
+                    print("\nÍMPAR", end=" ")
+
+                    #print(f"\nSeu código é: {prog_digito_1} {prog_digito_2} {prog_digito_3} {prog_digito_4}")
+            if prog_digito_2 != "_":
+                print(f"{prog_digito_2}", end=" ")
+            else:
+                if cod_secreto_2 % 2 == 0:
+                    print("\nPAR", end=" ")
+                else:
+                    print("\nÍMPAR", end=" ")
+
+                    #print(f"\nSeu código é: {prog_digito_1} {prog_digito_2} {prog_digito_3} {prog_digito_4}")
+            if prog_digito_3 != "_":
+                print(f"{prog_digito_3}", end=" ")
+            else:
+                if cod_secreto_3 % 2 == 0:
+                    print("\nPAR", end=" ")
+                else:
+                    print("\nÍMPAR", end=" ")
+
+                    #print(f"\nSeu código é: {prog_digito_1} {prog_digito_2} {prog_digito_3} {prog_digito_4}")
+            if prog_digito_4 != "_":
+                print(f"{prog_digito_4}", end=" ")
+            else:
+                if cod_secreto_4 % 2 == 0:
+                    print("\nPAR", end=" ")
+                else:
+                    print("\nÍMPAR", end=" ")
+
             soma_digitos = cod_secreto_1 + cod_secreto_2 + cod_secreto_3 + cod_secreto_4
             if soma_digitos % 2 == 0:
-                print("Dica: A soma dos dígitos do número secreto é um número par!")
+                print("\nDica: A soma dos dígitos do número secreto é um número par!")
             else:
-                print("Dica: A soma dos dígitos do número secreto é um número ímpar!")
+                print("\nDica: A soma dos dígitos do número secreto é um número ímpar!")
 
-            if codig_secret >= 5000:
-                print("Dica: O número secreto está acima de 5000!")
+                print("\n-----------------------------------------------------------")
+
+            if codig_secret > palpite:
+                print(f"\nDica: O número secreto está acima de {palpite}!")
             else:
-                print("Dica: O número secreto está abaixo de 5000!")
+                print(f"\nDica: O número secreto está abaixo de {palpite}!")
+
+                print("\n-----------------------------------------------------------")
 
             if cod_secreto_1 == cod_secreto_4:
-                print("Dica: O primeiro e o último dígito do número secreto são iguais!")
+                print("\nDica: O primeiro e o último dígito do número secreto são iguais!")
 
-    # ----------------- FIM DICAS
+            if palpite == codig_secret:
+                print("\n----------------------------------------------------------------")
+                print("\nP A R A B É N S ! ! !")
+                print("\nVOCÊ ACERTOU O CÓDIGO SECRETO ! ! !")
+                jogar_novamente = int(input("\nDeseja jogar novamente? (1 - Sim / 0 - Não): "))
 
-    if tentativas == 10:
-        print("\n---------------------------------------")
-        print(f"\nVOCÊ NÃO ACERTOU O NÚMERO SECRETO, O CÓDIGO ERA: {codig_secret}") 
-        jogar_novamente = int(input("\nDeseja jogar novamente? (1 - Sim / 0 - Não): "))
+            if tentativas == 10:
+                print("\n--------------------------------------------------------------")
+                print(f"\nVOCÊ NÃO ACERTOU O NÚMERO SECRETO, O CÓDIGO ERA: {codig_secret}") 
+                jogar_novamente = int(input("\nDeseja jogar novamente? (1 - Sim / 0 - Não): "))
 
-    if prog_digito_1 and prog_digito_2 and prog_digito_3 and prog_digito_4 == codig_secret:
-        print("P A R A B É N S ! ! !")
-        print("VOCÊ ACERTOU O CÓDIGO SECRETO ! ! !")
-        jogar_novamente = int(input("\nDeseja jogar novamente? (1 - Sim / 0 - Não): "))
+    
    
