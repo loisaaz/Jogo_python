@@ -10,8 +10,8 @@ codig_secret= random.randint(1000,9999)
 
 tentativas = 0 
 max_tentativas = 10
-#acertos = 0
-#posicao = 0
+
+
 progresso = "_ _ _ _"
 prog_digito_1 = "_"
 prog_digito_2 = "_"
@@ -43,44 +43,41 @@ while tentativas < max_tentativas:
 
     if digito_1 == cod_secreto_1:
         prog_digito_1 = digito_1
-        #posicao += 1
+        print("\nVocê acertou 1 dígito(s)!")
 
     else: 
         digito_1 != cod_secreto_1
-        #posicao += 1
+        print("\nVocê não acertou nenhum dígito.")
 
     if digito_2 == cod_secreto_2:
         prog_digito_2 = digito_2
-        #posicao += 1
+        print("\nVocê acertou 1 dígito(s)!")
 
     else:
         digito_2 != cod_secreto_2
-        #posicao += 1
+        print("\nVocê não acertou nenhum dígito.")
 
     if digito_3 == cod_secreto_3:
         prog_digito_3 = digito_3
-        #posicao += 1
+        print("\nVocê acertou 1 dígito(s)!")
 
     else:
         digito_3 != cod_secreto_3
-        #posicao += 1
+        print("\nVocê não acertou nenhum dígito.")
 
     if digito_4 == cod_secreto_4:
         prog_digito_4 = digito_4
-        #posicao += 1
+        print("\nVocê acertou 1 dígito(s)!")
 
     else:
         digito_4 != cod_secreto_4
-        #posicao += 1
+        print("\nVocê não acertou nenhum dígito.")
 
     #print("\nNúmeros corretos na posição certa:", posicao)
     #print("\nNúmeros corretos na posição errada:", acertos - posicao)
 
     if prog_digito_1 or prog_digito_2 or prog_digito_3 or prog_digito_4 == codig_secret:
         print(f"\nSeu código é: {prog_digito_1} {prog_digito_2} {prog_digito_3} {prog_digito_4}")
-        print("\nVocê acertou 1 dígito(s)!")
-    else:
-        print("\nVocê não acertou nenhum dígito.")
            
 # Dicas a partir da 5ª tentativa
     if tentativas >= 5:
